@@ -3,7 +3,7 @@
 import java.util.Date;
 import static java.lang.System.out;
 
-class Demo {
+public class Demo {
 	static String data;
 	static int intData;
 

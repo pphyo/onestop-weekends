@@ -15,7 +15,17 @@ public class ConstructorApp {
 		
 		System.out.println(l1.getColor());
 		System.out.println(l2.getColor());
+		System.out.println(l1.instData);
+		
+		Animal.info();
+		
+		new Cat("Gold", "Pet", "Wah Wah");
 
 	}
 
 }
+
+
+
+
+

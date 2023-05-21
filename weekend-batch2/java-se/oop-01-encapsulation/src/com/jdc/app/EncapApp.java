@@ -8,8 +8,6 @@ public class EncapApp {
 		
 		// I am (name). I am (age) (year) old. I work as (job).
 		
-		int i = 20;
-		
 		User user = new User();
 		System.out.println(user.getAge());
 		
