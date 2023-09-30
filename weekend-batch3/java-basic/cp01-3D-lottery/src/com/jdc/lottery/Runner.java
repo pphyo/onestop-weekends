@@ -13,9 +13,9 @@ public class Runner {
 		showMessage("Welcome to 3D Lottery App");
 		
 		do {
-			int first = generate();
-			int second = generate();
-			int third = generate();
+//			int first = generate();
+//			int second = generate();
+//			int third = generate();
 			
 			// get user's lottery
 			String userDigit = getString("Enter your lottery number: ");

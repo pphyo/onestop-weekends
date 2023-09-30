@@ -10,7 +10,7 @@ public class ExceptionApp {
 		
 		System.out.println("Program start.");
 		
-		var stu = app.doException("Isabela Yolander Merced", 20, "0819393939");
+		app.doException("Isabela Yolander Merced", 20, "0819393939");
 		
 		System.out.println("Program end.");
 		
