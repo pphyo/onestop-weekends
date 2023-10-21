@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:annotation-config />
+	<context:component-scan base-package="com.jdc.ioc"></context:component-scan>
+        
+    <bean class="java.lang.String">
+    	<constructor-arg value="Hello string from ioc."></constructor-arg>
+    </bean>
+
+	<!-- <bean name="defBean1;defBean2;defBean3;defBean4" class="com.jdc.ioc.Message" />
+
+    <bean id="constArgBean" class="com.jdc.ioc.Message">
+    	<constructor-arg value="Hi from bean definition.(1 arg)"></constructor-arg>
+    </bean> -->
+
+</beans>
