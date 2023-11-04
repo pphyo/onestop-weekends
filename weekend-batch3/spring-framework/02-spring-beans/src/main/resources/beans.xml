@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="service" class="com.jdc.beans.MyService"></bean>
+    
+    <bean id="factoryBean" class="com.jdc.beans.MyServiceInstanceFactory"></bean>
+    
+    <bean 
+    	id="instanceFactoryBeanWithoutArg" 
+    	factory-bean="factoryBean"
+    	factory-method="withoutConstructorArg"></bean>
+    	
+    <bean
+    	id="instanceFactoryBeanWithArg"
+    	factory-bean="factoryBean"
+    	factory-method="withConstructorArg">
+    	<constructor-arg value="Hello"></constructor-arg>
+    </bean>
+    
+    <bean 
+    	id="staticFactoryBean" 
+    	factory-method="create"
+    	class="com.jdc.beans.MyServiceStaticFactory">
+    	<constructor-arg value="Hello"></constructor-arg>
+    </bean>
+
+</beans>

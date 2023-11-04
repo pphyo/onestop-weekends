@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="dIService" class="com.jdc.di.beans.DIService" autowire-candidate="false" />
+    
+   	<bean id="defaultService" class="com.jdc.di.beans.DIDefaultService" />
+    
+    <!-- Auto Wiring -->
+    <bean class="com.jdc.di.beans.DIClient" autowire="constructor"/>
+    
+    <!-- Explicit Wiring -->
+    <!-- <bean class="com.jdc.di.beans.DIClient">
+    	<constructor-arg ref="service"></constructor-arg>
+    	<property name="service" ref="service"></property>
+     </bean> -->
+
+</beans>
