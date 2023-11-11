@@ -1,10 +1,9 @@
 package com.jdc.di.beans;
 
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-@Component("dIService")
-@Qualifier("optional")
+@Component
+@ServiceQualifier(ServiceType.CUSTOM)
 public class DIService implements BaseService {
 	
 	public void doService(String data) {

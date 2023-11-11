@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="default" class="com.jdc.profile.beans.DefaultRepository"></bean>
+    
+    <beans profile="development">
+    	<bean id="developmentBean" class="com.jdc.profile.beans.DevelopementRepository"></bean>
+    </beans>
+    
+    <beans profile="release">
+    	<bean id="releaseBean" class="com.jdc.profile.beans.ReleaseRepository"></bean>
+    </beans>
+
+</beans>

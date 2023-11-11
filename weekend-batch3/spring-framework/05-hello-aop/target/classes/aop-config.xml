@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="aspectBean" class="com.jdc.aop.aspects.AopAspect"></bean>
+    
+    <bean id="businessBean" class="com.jdc.aop.beans.BusinessBean"></bean>
+    
+    <aop:config>
+    	<aop:aspect ref="aspectBean">
+    		<aop:before method="doBefore" pointcut="execution(void doBusinessForBefore(..)) and args(str,..)" arg-names="str" />
+    		<aop:after method="doAfter" pointcut="execution(void doBusinessForAfter())" />
+    		<aop:after-returning method="afterReturning" pointcut="execution(void doBusinessForAfterReturning())" />
+    		<aop:after-throwing method="afterThrowing" pointcut="execution(void doBusinessForAfterThrowing())" />
+    		<aop:around method="around" pointcut="execution(void doBusinessForAround())" />
+    	</aop:aspect>
+    </aop:config>
+
+</beans>
