@@ -10,7 +10,7 @@ import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 public class DatabaseConfig {
 
 	@Bean
-	public SimpleJdbcInsert jdbcInsert(DataSource dataSource) {
+	SimpleJdbcInsert jdbcInsert(DataSource dataSource) {
 		return new SimpleJdbcInsert(dataSource);
 	}
 	

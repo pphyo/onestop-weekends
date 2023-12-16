@@ -12,6 +12,8 @@ import org.springframework.stereotype.Service;
 import com.jdc.mvc.model.entity.Course;
 import com.jdc.mvc.model.entity.Level;
 
+import jakarta.annotation.PostConstruct;
+
 @Service
 public class CourseService {
 	
@@ -28,14 +30,18 @@ public class CourseService {
 			c.setDuration(rs.getInt("duration"));
 			c.setLevel(Level.valueOf(rs.getString("level")));
 			c.setPrice(rs.getInt("price"));
+			c.setStartDate(rs.getDate("start_date") == null ? null : rs.getDate("start_date").toLocalDate());
 			return c;
 		};
 	}
 	
-	public int create(Course course) {
+	@PostConstruct
+	public void init() {
 		insert.setTableName("course");
 		insert.setGeneratedKeyName("id");
-		
+	}
+	
+	public int create(Course course) {		
 		Map<String, Object> map = new HashMap<>();
 		
 		map.put("id", course.getId());
@@ -43,6 +49,16 @@ public class CourseService {
 		map.put("duration", course.getDuration());
 		map.put("level", course.getLevel());
 		map.put("price", course.getPrice());
+		map.put("start_date", course.getStartDate());
+		
+		if(course.getId() > 0) {
+			insert.getJdbcTemplate().update("update course set name = ?, price = ?, duration = ?, level = ?, start_date = ? where id = ?", 
+					course.getName(), course.getPrice(), 
+					course.getDuration(), course.getLevel().name(),
+					course.getStartDate(), course.getId());
+			
+			return course.getId();
+		}
 		
 		return insert.executeAndReturnKey(map).intValue();
 	}
