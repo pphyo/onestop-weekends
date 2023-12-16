@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Mvc Request Handler</title>
+<link rel="stylesheet" type="text/css" th:href="@{/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+
+	<div class="container mt-4">
+		<h4 class="fw-bold mb-3">Course List</h4>
+		<a th:href="@{/course/form}" class="btn btn-primary mb-3">Add Course</a>
+		
+		<div th:unless="${courses}" class="alert alert-warning">
+			No course in database!
+		</div>
+		
+		<table class="table table-striped table-hover" th:if="${courses}">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+					<th>Price</th>
+					<th>Duration</th>
+					<th>Level</th>
+					<th></th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr th:each="course : ${courses}">
+					<td th:text="${course.id}"></td>
+					<td th:text="${course.name}"></td>
+					<td th:text="${course.price}"></td>
+					<td th:text="${course.duration}"></td>
+					<td th:text="${course.level}"></td>
+					<td>
+						<a class="link text-primary me-2">Edit</a>
+						<a class="link text-danger" href="">Delete</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	
+	</div>
+
+	<script type="text/javascript" th:src="@{/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
+
+
+
+
+
+
+
