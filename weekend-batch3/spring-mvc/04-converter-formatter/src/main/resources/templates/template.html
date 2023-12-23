@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="home">
+<head>
+<meta charset="UTF-8">
+<title>[[${title}]]</title>
+<link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}" />
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+	<div class="container">
+	
+		<a th:href="@{/}" class="navbar-brand">Spring MVC</a>
+		
+		<ul class="navbar-nav ms-auto mb-lg-0 mb-2">
+			<li class="nav-item">
+				<a th:href="@{/category}" class="nav-link" th:classappend="${current} == 'category' ? 'active' : _">Category</a>
+			</li>
+			<li class="nav-item">
+				<a th:href="@{/item}" class="nav-link" th:classappend="${current} == 'item' ? 'active' : _">Item</a>			
+			</li>
+		</ul>
+		
+	</div>
+</nav>
+
+<main th:replace="${main}">
+</main>
+
+<script type="text/javascript" th:src="@{/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
